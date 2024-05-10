@@ -1,0 +1,25 @@
+{
+  "colors": {
+    "default": {
+      "theme_color": {
+        "primary": "rgb(30, 41, 59)",
+        "body": "#ffffff",
+        "border": "rgb(30, 41, 59)s"
+      },
+      "text_color": {
+        "default": "rgb(30, 41, 59)",
+        "dark": "rgb(30, 41, 59)"
+      }
+    }
+  },
+  "fonts": {
+    "font_family": {
+      "primary": "Questrial:wght@400;500;600;700",
+      "primary_type": "Roboto"
+    },
+    "font_size": {
+      "base": "16",
+      "scale": "1.250"
+    }
+  }
+}

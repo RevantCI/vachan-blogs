@@ -1,0 +1,25 @@
+{
+  "site": {
+    "title": "Vachan Blogs",
+    "base_url": "/",
+    "favicon": "/images/favicon_blue.png"
+  },
+
+  "settings": {
+    "pagination": 6,
+    "summary_length": 200,
+    "blog_folder": "posts"
+  },
+
+  
+  "params": {
+    "contact_form_action": "#",
+    "tag_manager_id": "",
+    "footerText": "<button style='border:1px solid grey; padding:10px; border-radius:10px;'>[Go to VachanOnline](https://www.vachanonline.com)</button>"
+  },
+
+  "metadata": {
+    "meta_image": "",
+    "meta_description": ""
+  }
+}
