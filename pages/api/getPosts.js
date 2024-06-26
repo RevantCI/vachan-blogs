@@ -12,12 +12,12 @@ export default async function handler(req, res) {
     return;
   }
 
-  const blogsDirectory = "./content/posts";
+  const blogsDirectory = path.join(process.cwd(), "content","posts");
   const filenames = fs.readdirSync(blogsDirectory);
 
   const blogs = filenames.map((filename) => {
     const filePath = path.join(blogsDirectory, filename);
-    const fileContents = fs.readFileSync(filePath, "utf8");
+    const fileContents = fs.readFileSync(filePath, "utf-8");
     const { data, content } = matter(fileContents);
     const imagePath = data.image;
 
