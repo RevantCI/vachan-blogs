@@ -3,18 +3,18 @@ import { dateFormat } from "@lib/utils/dateFormat";
 import { readingTime } from "@lib/utils/readingTime";
 import { similerItems } from "@lib/utils/similarItems";
 import { humanize, markdownify, slugify } from "@lib/utils/textConverter";
-import shortcodes from "@shortcodes/all";
 import { MDXRemote } from "next-mdx-remote";
 import Image from "next/image";
 import Link from "next/link";
 import Base from "./Baseof";
 import Post from "./components/Post";
+import { imageURL } from "store/store";
 const PostSingle = ({ post, mdxContent, slug, posts }) => {
   const { frontmatter, content } = post[0];
   let { description, title, date, image, categories } = frontmatter;
   description = description ? description : content.slice(0, 120);
   const similarPosts = similerItems(post, posts, slug);
-
+  
   return (
     <Base title={title} description={description}>
       <section className="pb-6 pt-5">
@@ -44,7 +44,7 @@ const PostSingle = ({ post, mdxContent, slug, posts }) => {
                 {image && (
                   <Image
                     className="w-full"
-                    src={image}
+                    src={imageURL + image}
                     height="500"
                     width="1000"
                     alt={title}
@@ -79,7 +79,7 @@ const PostSingle = ({ post, mdxContent, slug, posts }) => {
                   </li>
                 </ul>
                 <div className="content text-left">
-                  <MDXRemote {...mdxContent} components={shortcodes} />
+                  <MDXRemote {...mdxContent} />
                 </div>
               </article>
             </div>

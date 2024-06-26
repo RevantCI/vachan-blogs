@@ -2,15 +2,16 @@ import config from "@config/config.json";
 import { dateFormat } from "@lib/utils/dateFormat";
 import Image from "next/image";
 import Link from "next/link";
+import { imageURL } from "store/store";
 const { blog_folder } = config.settings;
 
-const Post = ({ post, className }) => {
-  return (
+const Post = ({ post, className}) => {
+return (
     <div className={className}>
       <div className="card">
         <Link href={`/${blog_folder}/${post.slug}`}>
           <Image
-            src={"/images/posts/post-1.jpeg"}
+            src={imageURL + post.frontmatter.image}
             alt="sample"
             style={{ marginBottom: "10px" }}
             width={500}

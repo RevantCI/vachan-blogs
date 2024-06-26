@@ -1,14 +1,11 @@
 ---
-title: "Scripture Engagement Article"
+title: "Deepen Your Connection: Engaging with Scripture"
 date: 2024-05-09
-image: /images/posts/post-1.jpeg
+image: post-1.jpg
 categories:
-  - Scripture
+  - Scripture-Engagement
 draft: false
 ---
-
-## Deepen Your Connection: Engaging with Scripture
-
 Have you ever felt like reading the Bible is more of a chore than a spiritual experience? You're not alone! Despite knowing its importance, many Christians struggle to truly connect with God's Word. But what if there was a way to **transform** your Bible reading into a **meaningful, life-changing encounter**? That's where **Scripture engagement** comes in.
 
 #### More Than Just Reading:

@@ -1,0 +1,1 @@
+export const imageURL = "https://raw.githubusercontent.com/Bridgeconn/vachancontentrepository/master/blogs/images/"
