@@ -16,6 +16,7 @@ const Header = () => {
   const [navMenu, setNavMenu] = useState(
     menu.main.map((item) => ({ ...item, type: "main" }))
   );
+  const [windowWidth, setWindowWidth] = useState(null);
 
   useEffect(() => {
     const matchRoute = menu.main.find((item) => item.url === router.asPath);
@@ -39,18 +40,80 @@ const Header = () => {
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [router.asPath, menu.main, categories]);
 
+  useEffect(() => {
+    if (typeof window !== "undefined") {
+      setWindowWidth(window.innerWidth);
+    }
+
+    const handleResize = () => setWindowWidth(window.innerWidth);
+    window.addEventListener("resize", handleResize);
+
+    return () => {
+      window.removeEventListener("resize", handleResize);
+    };
+  }, []);
+
+  const renderHelpIcon = () => (
+    <div>
+      <Link
+        href={
+          windowWidth < 600
+            ? "https://vachandevmobile-um.netlify.app/blogs"
+            : "https://vachandev-um.netlify.app/blogs"
+        }
+        target="_blank"
+      >
+        <svg
+          xmlns="http://www.w3.org/2000/svg"
+          fill="none"
+          viewBox="0 0 24 24"
+          strokeWidth="1.5"
+          stroke="currentColor"
+          className="size-8"
+        >
+          <path
+            strokeLinecap="round"
+            strokeLinejoin="round"
+            d="M9.879 7.519c1.171-1.025 3.071-1.025 4.242 0 1.172 1.025 1.172 2.687 0 3.712-.203.179-.43.326-.67.442-.745.361-1.45.999-1.45 1.827v.75M21 12a9 9 0 1 1-18 0 9 9 0 0 1 18 0Zm-9 5.25h.008v.008H12v-.008Z"
+          />
+        </svg>
+      </Link>
+    </div>
+  );
+
   return (
     <>
       <header className={`header mt-4`}>
-      <div style={{display:"flex",justifyContent:"center"}}>
-            <a
-              target="_blank"
-              href="https://www.vachanonline.com"
-              rel="noopener noreferrer"
-            >
-             <Image src="/images/logo1.png" alt="vachanonline" width="300" height="60" />  
-             </a>
-             </div>         
+        <div
+          style={{
+            display: "flex",
+            justifyContent: "center",
+            alignItems: "center",
+            position: "relative",
+          }}
+        >
+          <a
+            target="_blank"
+            href="https://www.vachanonline.com"
+            rel="noopener noreferrer"
+          >
+            <Image
+              src="/images/logo1.png"
+              alt="vachanonline"
+              width="285"
+              height="60"
+            />
+          </a>
+          <div
+            style={{
+              justifySelf: "flex-end",
+              position: "absolute",
+              right: "10px",
+            }}
+          >
+            {renderHelpIcon()}
+          </div>
+        </div>
 
         <nav className="navbar container text-center md:text-left">
           {/* navbar toggler */}
@@ -78,7 +141,7 @@ const Header = () => {
           {router.asPath !== "/" && (
             <div className="hidden text-center md:block">
               <Link
-                className="mb-12  inline-flex items-center text-primary hover:underline"
+                className="mb-12 inline-flex items-center text-primary hover:underline"
                 href="/"
               >
                 <svg
